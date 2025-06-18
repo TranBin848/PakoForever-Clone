@@ -1,0 +1,126 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1097666312689612
+GameObject:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Component:
+  - component: {fileID: 4737979576473265}
+  - component: {fileID: 114908994784264194}
+  - component: {fileID: 114701588276974745}
+  - component: {fileID: 114339813237582468}
+  - component: {fileID: 114943230329707152}
+  m_Layer: 0
+  m_Name: _STAGE02_woods
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4737979576473265
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097666312689612}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114908994784264194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097666312689612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecf7d87c56159653876d4c7a10fb0bea, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  starterPiece: {fileID: 1963382766203923, guid: 99c3e4a0e5a6b3f448307a00810a2dc2, type: 2}
+  variousPieces:
+  - {fileID: 1769307313288207, guid: 9e7a617728bbd7a43b2a598dfb1a7c15, type: 2}
+  - {fileID: 1776283485912913, guid: c5e3cef1cfe50d64a879f645869f37c4, type: 2}
+  - {fileID: 1030945831633026, guid: 216f3de100ad36d419b0dcea8c1adcad, type: 2}
+  - {fileID: 1880052474378646, guid: 65f5d485d17d28f478d0d3f1180318c9, type: 2}
+  - {fileID: 1376061473301581, guid: e37515a95e2949045b6b815beef1da5b, type: 2}
+  uncommonPieces:
+  - {fileID: 1195279832888439, guid: 9787ed5449e6a8b41a7069b141e5ced5, type: 2}
+  - {fileID: 1217379011573656, guid: 64c252651d8def74f9d48d4933d09e5c, type: 2}
+  uniquePieces:
+  - {fileID: 1678646550717862, guid: 6facf1233d7b9524bb5d92db68ebe78f, type: 2}
+  - {fileID: 1462401188916743, guid: fe323c3b9a6472c4b953213b4aad1ca3, type: 2}
+  - {fileID: 1676424742108476, guid: 78f44b35ebd50c5498de30da78ad3a1b, type: 2}
+  - {fileID: 1095747540182928, guid: 72490c6e2b9e42748ad74af1bdf8fda2, type: 2}
+  count: 22
+  gridSize: 66
+  gridSquares: 3
+  takenGridPoints:
+  - {x: 0, y: 0}
+--- !u!114 &114701588276974745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097666312689612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64c824c101d6fad16fce29b0fc715ae1, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  lamp: {fileID: 1874187527235862, guid: 6a58a344a61e8124fa78d3f9dad64a77, type: 2}
+--- !u!114 &114339813237582468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097666312689612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b51a9bfc31f9a6be86774bf41fafd4ab, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  useBasicSpawners: 1
+  useCoinBasedItems: 0
+  useTimerReset: 0
+--- !u!114 &114943230329707152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097666312689612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af36761016b7f9d9e96c68d0b4d773a5, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  enemyType: {fileID: 1157022455898854, guid: af3d18e63fbb71144a5ea7ec911e2feb, type: 2}
+  rate: 1.2
+  randomizeRate: 0
+  radius: 35
+  player: {fileID: 0}
+  spawnPattern: 1
+  sides: 0
+  squareSplit: 4
+  lookAtPlayer: 1
+  startAt: 1
+  triggerAtPakocalypse: 0
+  spawnCount: 40
+  rateByPickedItems: 0
+  paused: 0
+  thunderstormFix: 0
+  heightPosFix: 0
+  startPaused: 0

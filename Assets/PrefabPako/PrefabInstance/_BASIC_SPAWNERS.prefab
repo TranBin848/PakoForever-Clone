@@ -1,0 +1,208 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1017515083453419
+GameObject:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Component:
+  - component: {fileID: 4032564643892772}
+  - component: {fileID: 114087846967372604}
+  - component: {fileID: 114454887588396734}
+  - component: {fileID: 114080206837407583}
+  - component: {fileID: 114859434985257686}
+  - component: {fileID: 114278758472532037}
+  - component: {fileID: 114413807320404890}
+  - component: {fileID: 114046319180127239}
+  m_Layer: 0
+  m_Name: _BASIC_SPAWNERS
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4032564643892772
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017515083453419}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114087846967372604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017515083453419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7e012bd3a27d6507db538aa1595fc9f, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  enemyType:
+  - {fileID: 1915347073417465, guid: 97e09ad4586d9934a902ae7ca8620670, type: 2}
+  - {fileID: 1723266226955795, guid: 695711e27fbdd5d4badab51aa57ec0a7, type: 2}
+  player: {fileID: 0}
+  mediumCops: []
+  maxCops: 13
+  lookAtPlayer: 1
+--- !u!114 &114454887588396734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017515083453419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17747382c78c0a23b37ea7a43d5a0aba, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  enemyPrefab: {fileID: 1003219871594803, guid: 243b7c95333cc6a4bac6230b7e911424, type: 2}
+  altEnemyPrefab: {fileID: 1027502394298372, guid: 002bdfdac25f6f14bb92e20739c8a2c0, type: 2}
+  swatList: []
+  maxCops: 1
+  lookAtPlayer: 1
+--- !u!114 &114080206837407583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017515083453419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af36761016b7f9d9e96c68d0b4d773a5, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  enemyType: {fileID: 1413479101931995, guid: 787e4020df983a243a7df21bab0e9172, type: 2}
+  rate: 12
+  randomizeRate: 0
+  radius: 80
+  player: {fileID: 0}
+  spawnPattern: 0
+  sides: 0
+  squareSplit: 4
+  lookAtPlayer: 1
+  startAt: 37
+  triggerAtPakocalypse: 0
+  spawnCount: -1
+  rateByPickedItems: 0
+  paused: 0
+  thunderstormFix: 0
+  heightPosFix: 13
+  startPaused: 0
+--- !u!114 &114859434985257686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017515083453419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af36761016b7f9d9e96c68d0b4d773a5, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  enemyType: {fileID: 1698657718915638, guid: d983a4a38e0b64a4b9fabc3eb775807e, type: 2}
+  rate: 0.9
+  randomizeRate: 0
+  radius: 40
+  player: {fileID: 0}
+  spawnPattern: 3
+  sides: 0
+  squareSplit: 4
+  lookAtPlayer: 1
+  startAt: 90
+  triggerAtPakocalypse: 1
+  spawnCount: -1
+  rateByPickedItems: 0
+  paused: 0
+  thunderstormFix: 0
+  heightPosFix: 42
+  startPaused: 0
+--- !u!114 &114278758472532037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017515083453419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af36761016b7f9d9e96c68d0b4d773a5, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  enemyType: {fileID: 1129933412950849, guid: df941be2327dcd0418d672341f6cf132, type: 2}
+  rate: 50
+  randomizeRate: 0
+  radius: 50
+  player: {fileID: 0}
+  spawnPattern: 1
+  sides: 0
+  squareSplit: 4
+  lookAtPlayer: 1
+  startAt: 1
+  triggerAtPakocalypse: 0
+  spawnCount: 1
+  rateByPickedItems: 0
+  paused: 0
+  thunderstormFix: 0
+  heightPosFix: 0
+  startPaused: 0
+--- !u!114 &114413807320404890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017515083453419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bbde6288cb982c27227dfc335b0e7f2, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  spawnItem: {fileID: 1123601083129855, guid: 9e8e88fbea0c4634f8a032413c250401, type: 2}
+  radius: 80
+  player: {fileID: 0}
+  heightPosFix: 0
+--- !u!114 &114046319180127239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017515083453419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af36761016b7f9d9e96c68d0b4d773a5, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  enemyType: {fileID: 1679067144363366, guid: b3118de92de0ba44dadfedb1efd7ec7c, type: 2}
+  rate: 1
+  randomizeRate: 0
+  radius: 160
+  player: {fileID: 0}
+  spawnPattern: 1
+  sides: 0
+  squareSplit: 4
+  lookAtPlayer: 0
+  startAt: 1
+  triggerAtPakocalypse: 0
+  spawnCount: 1
+  rateByPickedItems: 0
+  paused: 0
+  thunderstormFix: 0
+  heightPosFix: 0
+  startPaused: 0

@@ -1,0 +1,143 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1861934221004738
+GameObject:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Component:
+  - component: {fileID: 4894083272866002}
+  - component: {fileID: 114819330829287992}
+  - component: {fileID: 114717754678064250}
+  - component: {fileID: 114300541566257990}
+  - component: {fileID: 114214182273937279}
+  - component: {fileID: 114488524429765221}
+  m_Layer: 0
+  m_Name: _STAGE04_carshop
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4894083272866002
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861934221004738}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114819330829287992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861934221004738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecf7d87c56159653876d4c7a10fb0bea, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  starterPiece: {fileID: 1591885169491894, guid: b94f3b81a8230fc459093e24ebafb71e, type: 2}
+  variousPieces:
+  - {fileID: 1091234094440842, guid: 6469ba153dd218d458c0ce9b9f4ee2d1, type: 2}
+  - {fileID: 1431136304410370, guid: af1251a30a151f54d9614e7dd1222b12, type: 2}
+  - {fileID: 1626877814947905, guid: adb5f0ae9312e8c428ffc188582cfd3f, type: 2}
+  - {fileID: 1881321797234710, guid: 194f23e6ae7143d40a10e4295736310c, type: 2}
+  - {fileID: 1206443048922794, guid: 426542b0db506184596d6ca35d7db38b, type: 2}
+  - {fileID: 1656593686564773, guid: 8802333e085de9941a2fe6496f303d0b, type: 2}
+  - {fileID: 1216078072590208, guid: 9bedc044c7ad0c944829536d45a70cff, type: 2}
+  uncommonPieces:
+  - {fileID: 1091234094440842, guid: 6469ba153dd218d458c0ce9b9f4ee2d1, type: 2}
+  - {fileID: 1358157067910392, guid: 5946d8e09ada31145a26dc69164b7323, type: 2}
+  - {fileID: 1293658096417106, guid: 565af4de1987f344fabcc4f073cc0bee, type: 2}
+  - {fileID: 1320891396082183, guid: 537b2d6dff27a2d4eaa67bd30292d9ef, type: 2}
+  uniquePieces:
+  - {fileID: 1268300835997165, guid: 13abcfd65c0e5cb49933cae267db448c, type: 2}
+  - {fileID: 1467508691545575, guid: ad13323c5508cd541b1df339bfe7dd19, type: 2}
+  - {fileID: 1899963007638045, guid: ac9d53fbb66223a47a83d7aa64e60f6d, type: 2}
+  count: 22
+  gridSize: 66
+  gridSquares: 3
+  takenGridPoints:
+  - {x: 0, y: 0}
+--- !u!114 &114717754678064250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861934221004738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64c824c101d6fad16fce29b0fc715ae1, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  lamp: {fileID: 1845448396082471, guid: 4b11922c7111e3b40939e0c59c07615e, type: 2}
+--- !u!114 &114300541566257990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861934221004738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b51a9bfc31f9a6be86774bf41fafd4ab, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  useBasicSpawners: 1
+  useCoinBasedItems: 0
+  useTimerReset: 0
+--- !u!114 &114214182273937279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861934221004738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f007dd9e444a32ea8c08ee1dd484a719, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  prefab: {fileID: 1294343547354903, guid: bff08936898b0a748b1c73ffbf0e9865, type: 2}
+--- !u!114 &114488524429765221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861934221004738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af36761016b7f9d9e96c68d0b4d773a5, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  enemyType: {fileID: 1513676322748173, guid: 74b5edddfcbde464bacff057eed6446d, type: 2}
+  rate: 3
+  randomizeRate: 0
+  radius: 50
+  player: {fileID: 0}
+  spawnPattern: 1
+  sides: 0
+  squareSplit: 4
+  lookAtPlayer: 0
+  startAt: 0
+  triggerAtPakocalypse: 0
+  spawnCount: 1
+  rateByPickedItems: 0
+  paused: 0
+  thunderstormFix: 1
+  heightPosFix: 0
+  startPaused: 0

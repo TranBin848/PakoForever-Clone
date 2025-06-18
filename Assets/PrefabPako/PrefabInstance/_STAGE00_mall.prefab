@@ -1,0 +1,106 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1630825884217079
+GameObject:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Component:
+  - component: {fileID: 4059222129330741}
+  - component: {fileID: 114733817222833209}
+  - component: {fileID: 114060582571584001}
+  - component: {fileID: 114607237419709878}
+  m_Layer: 0
+  m_Name: _STAGE00_mall
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4059222129330741
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1630825884217079}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114733817222833209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1630825884217079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecf7d87c56159653876d4c7a10fb0bea, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  starterPiece: {fileID: 1777754339049484, guid: 553108f4e49f8374691d2828eea68fea, type: 2}
+  variousPieces:
+  - {fileID: 1636847385125013, guid: bcfe19dd71a899b4eac51c3da790a949, type: 2}
+  - {fileID: 1539616644189298, guid: dce09ac5e04820b44b120fe1fce27be9, type: 2}
+  - {fileID: 1108571358916444, guid: 20beac048a0f5f543a4f03a9cab8d1c8, type: 2}
+  - {fileID: 1116833577060839, guid: ed7007a3d81ffed4aaa46eb036e6d6c4, type: 2}
+  - {fileID: 1289950969559109, guid: 00a252660868a304bb74714309ff5d52, type: 2}
+  - {fileID: 1391808941449870, guid: fd7ab269f1763284e873c1fe000c57fd, type: 2}
+  uncommonPieces:
+  - {fileID: 1071459710044758, guid: 38c7081e7cb71e1409218221a9b3255d, type: 2}
+  - {fileID: 1020163138221407, guid: d0c6a5cd914f4ea47b665afd3a73df2d, type: 2}
+  - {fileID: 1293658096417106, guid: 565af4de1987f344fabcc4f073cc0bee, type: 2}
+  uniquePieces:
+  - {fileID: 1458485491287513, guid: fec582fc0d0f2874d8a10c89f359f465, type: 2}
+  - {fileID: 1547327153592345, guid: ac3749f0060dfea4894feddb75190952, type: 2}
+  - {fileID: 1383156677145371, guid: 0ef60875751b2e24d9f3a7e55b3e8306, type: 2}
+  - {fileID: 1411038056360251, guid: 99e785650ed5a8c4eb798189072876d1, type: 2}
+  - {fileID: 1482189017134287, guid: 19848730b04a560498ef8daac2510475, type: 2}
+  - {fileID: 1617242127342633, guid: d5147ba1c09fccf43ac5d8509e5c7140, type: 2}
+  - {fileID: 1563159264250868, guid: 77410304659e871429f69b07896759c6, type: 2}
+  - {fileID: 1660098410607588, guid: 3d02cd2da65eae449a86cca43ac1abab, type: 2}
+  - {fileID: 1416901072948488, guid: af20c376bbed8b34080cac613c2670b3, type: 2}
+  - {fileID: 1753767333880591, guid: 012fa24e54661c54b93a6bd5b2bb67e3, type: 2}
+  - {fileID: 1630852987868257, guid: 98830000070c0f44ba7d30ba8c068749, type: 2}
+  - {fileID: 1679618428609979, guid: 34d816e90e1139b47add9a2444b00f64, type: 2}
+  count: 22
+  gridSize: 66
+  gridSquares: 3
+  takenGridPoints:
+  - {x: 0, y: 0}
+--- !u!114 &114060582571584001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1630825884217079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64c824c101d6fad16fce29b0fc715ae1, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  lamp: {fileID: 1874187527235862, guid: 6a58a344a61e8124fa78d3f9dad64a77, type: 2}
+--- !u!114 &114607237419709878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1630825884217079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b51a9bfc31f9a6be86774bf41fafd4ab, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  useBasicSpawners: 1
+  useCoinBasedItems: 0
+  useTimerReset: 0
