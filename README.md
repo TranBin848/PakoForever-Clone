@@ -1,46 +1,41 @@
-# 🚓 Escape Eternal
+🚓 Escape Eternal
+A minimalist Unity remake of the chaotic car chase game, inspired by Pako Forever. Built for fun, chaos, and infinite escape attempts.
 
-*A minimalist Unity remake of the chaotic car chase game, inspired by **Pako Forever**. Built for fun, chaos, and infinite escape attempts.*
+🕹️ Introduction
+Escape Eternal is a personal project developed in Unity, recreating the fast-paced, endless chase gameplay style of Pako Forever.
 
----
+🎮 Features
+✅ Endless mode: an infinite map where the longer you survive, the more police cars chase you
 
-## 🕹️ Giới thiệu
+✅ Car skins: choose from various vehicles to match your personal style
 
-**Escape Eternal** là một dự án cá nhân được phát triển bằng Unity, tái hiện lại phong cách gameplay tốc độ và rượt đuổi không hồi kết của *Pako Forever*.
+✅ Diverse power-ups: speed boosts, collision resistance, police stun, and more
 
----
+✅ Visual effects: explosions, dust trails, collision sparks, etc.
 
-## 🎮 Tính năng đã có
+✅ Police AI: multiple police car types with smart pursuit behaviors
 
-- ✅ **Chế độ chơi endless**: bản đồ không giới hạn, càng chơi lâu càng nhiều cảnh sát đuổi
-- ✅ **Thay đổi skin xe**: chọn lựa các mẫu xe khác nhau để thể hiện phong cách riêng
-- ✅ **Power-ups đa dạng**: tăng tốc, chống đâm, làm choáng cảnh sát,...
-- ✅ **Hệ thống hiệu ứng**: cháy nổ, bụi đường, hiệu ứng va chạm,...
-- ✅ **Cảnh sát AI**: nhiều loại xe cảnh sát với hành vi truy đuổi thông minh
-- ✅ **Hệ thống cảnh vật**: nhà cửa, cây cối, chướng ngại vật sinh động, random hóa
+✅ Environment system: dynamic, randomized houses, trees, and obstacles
 
----
+🔧 Technologies Used
+Unity (version 202x.x)
 
-## 🔧 Công nghệ sử dụng
+C#
 
-- Unity (phiên bản 202x.x)
-- C#
-- Animator / Particle System / Rigidbody Physics
-- ScriptableObject cho quản lý skin và power-up
+Animator / Particle System / Rigidbody Physics
 
----
+ScriptableObject for managing skins and power-ups
 
-## 🧪 Mục tiêu trong tương lai
+🧪 Future Goals
+🛠️ Add vehicle upgrade system
 
-- 🛠️ Thêm hệ thống nâng cấp xe
-- 🛠️ Leaderboard online
-- 🛠️ Tối ưu hóa mobile
-- 🛠️ Thêm camera shake, slow-motion khi va chạm
+🛠️ Online leaderboard
 
----
+🛠️ Mobile optimization
 
-## 📜 Giấy phép & bản quyền
+🛠️ Add camera shake and slow-motion effects during collisions
 
-Dự án được thực hiện cho mục đích **học tập, nghiên cứu cá nhân** và **phi thương mại**. Escape Eternal lấy cảm hứng từ *Pako Forever* của Tree Men Games nhưng không sử dụng bất kỳ tài nguyên gốc nào từ game gốc.
----
+📜 License & Copyright
+This project is created for educational, personal research, and non-commercial purposes. Escape Eternal is inspired by Pako Forever by Tree Men Games but does not use any original assets from the source game.
+
 Happy escaping! 🚗💨
