@@ -39,12 +39,13 @@
 
 ---
 
+Demo Video: https://www.youtube.com/watch?v=XTXh3CfC5mY
+
 ## 📜 License & Copyright
 
 This project is created for **educational, personal research**, and **non-commercial** purposes. Escape Eternal is inspired by *Pako Forever* by Tree Men Games but does not use any original assets from the source game.
 
+⭐ **If you find this project interesting, please give it a star to support me!**
 ---
-
-Demo Video: https://www.youtube.com/watch?v=XTXh3CfC5mY
 
 🚗💨 **Happy escaping!**
