@@ -76,10 +76,10 @@ public class EnemyAI : MonoBehaviour
     {
         // Tính toán tốc độ di chuyển
         Vector3 forwardVelocity = transform.forward * CurrentSpeed;
-        Vector3 sidewaysVelocity = transform.right * Vector3.Dot(rb.velocity, transform.right) * data.DriftFactor;
+        Vector3 sidewaysVelocity = transform.right * Vector3.Dot(rb.linearVelocity, transform.right) * data.DriftFactor;
 
         // Kết hợp chuyển động thẳng và drift
-        rb.velocity = forwardVelocity + sidewaysVelocity;
+        rb.linearVelocity = forwardVelocity + sidewaysVelocity;
 
         // Tính toán góc nghiêng
         float targetTilt = steerInput * data.TiltAngle;
@@ -97,7 +97,7 @@ public class EnemyAI : MonoBehaviour
     void StopMovement()
     {
         isStuck = true;
-        rb.velocity = Vector3.zero;
+        rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
     }
     // Phương thức xử lý va chạm

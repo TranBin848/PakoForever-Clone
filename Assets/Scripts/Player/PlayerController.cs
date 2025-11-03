@@ -125,7 +125,7 @@ public class CarController : MonoBehaviour
     {
         
         isDisabled = true; // Đặt trạng thái xe bị vô hiệu hóa
-        rb.velocity = Vector3.zero; // Dừng chuyển động
+        rb.linearVelocity = Vector3.zero; // Dừng chuyển động
         rb.angularVelocity = Vector3.zero; // Dừng xoay
         CurrentSpeed = 0; // Reset tốc độ
         MoveForce = Vector3.zero; // Dừng mọi lực tác động
@@ -146,7 +146,7 @@ public class CarController : MonoBehaviour
             DisableCar();
         }   
         // Nếu xe đang quá chậm, tăng nhẹ tốc độ để đảm bảo không bị đứng yên
-        if (rb.velocity.magnitude < 1f)
+        if (rb.linearVelocity.magnitude < 1f)
         {
             rb.AddForce(transform.forward * 5f, ForceMode.Acceleration);
         }
@@ -193,13 +193,13 @@ public class CarController : MonoBehaviour
         }
 
         Vector3 forwardVelocity = transform.forward * CurrentSpeed;
-        Vector3 sidewaysVelocity = transform.right * Vector3.Dot(rb.velocity, transform.right);
+        Vector3 sidewaysVelocity = transform.right * Vector3.Dot(rb.linearVelocity, transform.right);
 
         // Giảm dần lực drift theo thời gian để tránh giật ngang
         sidewaysVelocity *= Mathf.Lerp(1f, 0.1f, Time.deltaTime * data.DriftSmooth);
 
         // Kết hợp chuyển động thẳng và drift
-        rb.velocity = forwardVelocity + sidewaysVelocity;
+        rb.linearVelocity = forwardVelocity + sidewaysVelocity;
 
         // Điều chỉnh hướng lái
         float targetTilt = steerInput * data.TiltAngle;
@@ -219,13 +219,13 @@ public class CarController : MonoBehaviour
             Vector3 driftDirection = transform.right * -steerInput;
 
             // Điều chỉnh độ trượt theo tốc độ hiện tại
-            float driftStrength = data.DriftFactor * rb.velocity.magnitude * 0.1f;
+            float driftStrength = data.DriftFactor * rb.linearVelocity.magnitude * 0.1f;
 
             // Thêm lực drift vào xe để làm trượt bánh xe
             rb.AddForce(driftDirection * driftStrength, ForceMode.Acceleration);
 
             // Giảm ma sát ngang để xe trượt mượt hơn
-            rb.velocity = Vector3.Lerp(rb.velocity, transform.forward * CurrentSpeed, data.DriftSmooth * Time.deltaTime);
+            rb.linearVelocity = Vector3.Lerp(rb.linearVelocity, transform.forward * CurrentSpeed, data.DriftSmooth * Time.deltaTime);
         }
     }
     public void StartSmokeEffect()

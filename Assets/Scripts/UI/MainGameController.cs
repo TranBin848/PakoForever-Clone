@@ -87,7 +87,7 @@ public class MainGameController : MonoBehaviour
         pausePanel.SetActive(false);
         chooseCharacterPanel.SetActive(false);
         inGamePanel.SetActive(true);
-        ChangeMesh.Instance.SaveMesh();
+        //ChangeMesh.Instance.SaveMesh();
     }
     public void ShowGameOverPanel()
     {
@@ -189,7 +189,7 @@ public class MainGameController : MonoBehaviour
     {
         Time.timeScale = 1;
         AudioManager.Instance.PlayMusic("Theme");
-        ChangeMesh.Instance.SaveMesh();
+        //ChangeMesh.Instance.SaveMesh();
         ShowInGamePanel();
     }
     public void Home()

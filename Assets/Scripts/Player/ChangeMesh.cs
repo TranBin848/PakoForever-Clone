@@ -18,6 +18,8 @@ public class ChangeMesh : MonoBehaviour, IDataPersistence
     public void LoadData(GameData data)
     {
         this.currentMeshIndex = data.currentMesh;
+        meshFilter = GetComponent<MeshFilter>();
+        meshFilter.mesh = carMeshes[currentMeshIndex];
     }
     public void SaveData(ref GameData data)
     {
@@ -38,10 +40,17 @@ public class ChangeMesh : MonoBehaviour, IDataPersistence
         currentMeshIndex = (currentMeshIndex + 1) % carMeshes.Length; // Chuyển đến mesh tiếp theo, quay lại đầu nếu hết
         meshFilter.mesh = carMeshes[currentMeshIndex]; // Cập nhật mesh
     }
-    public void SaveMesh()
-    {
-        DataPersistenceManager.instance.SaveGame();
-    }
+    //public void SaveMesh()
+    //{
+    //    if (DataPersistenceManager.instance == null)
+    //    {
+    //        Debug.LogWarning("DataPersistenceManager chưa sẵn sàng, hoãn SaveMesh!");
+    //        return;
+    //    }
+
+    //    // Nếu DataPersistenceManager đã sẵn sàng
+    //    DataPersistenceManager.instance.SaveGame();
+    //}
     public void PreviousMesh()
     {
         if (carMeshes.Length == 0) return;
