@@ -1,6 +1,6 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;  // Đảm bảo import đúng
+using UnityEngine.SceneManagement; 
 
 public class SceneHandler : MonoBehaviour
 {

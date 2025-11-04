@@ -16,6 +16,9 @@ public class EnemyAI : MonoBehaviour
     private float steerInput = 0; // Biến lưu hướng di chuyển
     private float distanceToPlayer = 0; // Khoảng cách tới player
 
+    private float steeringResponse = 8f; // phản ứng chậm hơn → drift trễ
+    private float driftInertia = 0.9f;   // quán tính giữ hướng cũ
+
     private void Start()
     {
         if (CarController.Instance != null)
@@ -35,63 +38,67 @@ public class EnemyAI : MonoBehaviour
     {
         if (CarController.Instance.isDisabled || isStuck || player == null)
             return;
-
-        HandleSteering();
-        HandleSpeed();
     }
 
     private void FixedUpdate()
     {
         if (CarController.Instance.isDisabled || isStuck || player == null)
             return;
+
+        HandleSpeed();
+        HandleSteering();
         MoveEnemy();
     }
 
     private void HandleSteering()
     {
-        // Hướng enemy về phía người chơi
         Vector3 directionToPlayer = (player.position - transform.position).normalized;
-        steerInput = Vector3.SignedAngle(transform.forward, directionToPlayer, Vector3.up) / 45f; // Điều chỉnh steerInput theo hướng đến player
-        steerInput = Mathf.Clamp(steerInput, -1f, 1f);
+
+        // Góc thật giữa hướng xe và hướng đến player
+        float desiredSteer = Vector3.SignedAngle(transform.forward, directionToPlayer, Vector3.up) / 45f;
+        desiredSteer = Mathf.Clamp(desiredSteer, -1f, 1f);
+
+        // Thêm độ trễ phản ứng (xe không bẻ lái ngay)
+        steerInput = Mathf.Lerp(steerInput, desiredSteer, Time.deltaTime * steeringResponse);
     }
 
     private void HandleSpeed()
     {
         distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
-        if (distanceToPlayer <= 3 && Mathf.Abs(steerInput) > 0f) // Giảm tốc khi gần
+        // Sử dụng Time.fixedDeltaTime
+        CurrentSpeed += data.Acceleration * Time.fixedDeltaTime;
+        CurrentSpeed = Mathf.Min(CurrentSpeed, data.MaxSpeed);
+
+        if (distanceToPlayer <= 5f && Mathf.Abs(steerInput) > 0.8f)
         {
-            CurrentSpeed -= data.Deceleration * Time.deltaTime;
+            // Giảm tốc mạnh hơn khi cố gắng rẽ gấp (tạo hiệu ứng phanh gấp/hoảng loạn)
+            CurrentSpeed -= data.Deceleration * Time.fixedDeltaTime * 2f;
             CurrentSpeed = Mathf.Max(CurrentSpeed, data.MinSpeed);
         }
-        else
-        {
-            CurrentSpeed += data.Acceleration * Time.deltaTime;
-            CurrentSpeed = Mathf.Min(CurrentSpeed, data.MaxSpeed);
-        }
-        
     }
 
     private void MoveEnemy()
     {
-        // Tính toán tốc độ di chuyển
-        Vector3 forwardVelocity = transform.forward * CurrentSpeed;
+        // Thêm "lực quán tính" – xe giữ hướng cũ nhiều hơn khi đổi hướng
+        Vector3 desiredForward = Vector3.Lerp(transform.forward, transform.forward + transform.right * steerInput, Time.deltaTime * driftInertia).normalized;
+
+        // Giảm tốc nhẹ khi đang đổi hướng để tạo cảm giác trượt
+        float driftSlowdown = 1f - Mathf.Abs(steerInput) * 0.2f;
+
+        Vector3 forwardVelocity = desiredForward * CurrentSpeed * driftSlowdown;
         Vector3 sidewaysVelocity = transform.right * Vector3.Dot(rb.linearVelocity, transform.right) * data.DriftFactor;
 
-        // Kết hợp chuyển động thẳng và drift
         rb.linearVelocity = forwardVelocity + sidewaysVelocity;
 
-        // Tính toán góc nghiêng
         float targetTilt = steerInput * data.TiltAngle;
         CurrentTilt = Mathf.Lerp(CurrentTilt, targetTilt, Time.deltaTime * 2f);
 
-        // Tính toán góc xoay
         currentSteerAngle += steerInput * CurrentSpeed * data.SteerAngle * Time.deltaTime;
 
-        // Kết hợp xoay và nghiêng
         Quaternion tiltRotation = Quaternion.Euler(0, 0, CurrentTilt);
         Quaternion steerRotation = Quaternion.Euler(0, currentSteerAngle, 0);
-        rb.MoveRotation(steerRotation * tiltRotation); // Sử dụng MoveRotation để làm mềm chuyển động
+        rb.MoveRotation(steerRotation * tiltRotation);
     }
 
     void StopMovement()
@@ -104,7 +111,7 @@ public class EnemyAI : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         // Kiểm tra nếu va chạm với các đối tượng cần thiết
-        if (collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Enemy")
+        if (collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Giant")
             || collision.gameObject.CompareTag("Player"))
         {
             // Kích hoạt hiệu ứng nổ
@@ -121,7 +128,7 @@ public class EnemyAI : MonoBehaviour
         {
             StopMovement(); 
         }
-        if(other.gameObject.CompareTag("Blade") || other.gameObject.CompareTag("Laser") || other.gameObject.CompareTag("Pillar"))
+        if(other.gameObject.CompareTag("Blade") || other.gameObject.CompareTag("Laser") || other.gameObject.CompareTag("Pillar") )
         {
             // Kích hoạt hiệu ứng nổ
             PlayExplosionEffect();
@@ -144,5 +151,18 @@ public class EnemyAI : MonoBehaviour
 
         }
     }
-    
+    public void ResetEnemy()
+    {
+        isStuck = false;
+        // Đảm bảo tốc độ và vận tốc Rigidbody được reset
+        CurrentSpeed = data.MinSpeed;
+        if (rb != null)
+        {
+            rb.isKinematic = false;
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+        }
+        // Cập nhật góc lái ban đầu từ rotation của transform (vừa được Spawner gán)
+        currentSteerAngle = transform.rotation.eulerAngles.y;
+    }
 }

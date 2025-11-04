@@ -6,10 +6,10 @@ public class Pillar : MonoBehaviour, IBuff
 {
     public GameObject pillarPrefab; // Prefab của cọc gỗ
     public ParticleSystem groundExplosionPrefab; // Hiệu ứng nổ đất
-    public float duration = 7f; // Thời gian tồn tại của buff
-    public float spawnInterval = 0.5f; // Thời gian giữa các lần triệu hồi
+    public float duration = 5.5f; // Thời gian tồn tại của buff
+    public float spawnInterval = 0.2f; // Thời gian giữa các lần triệu hồi
     public float spawnDistance = 2f; // Khoảng cách phía sau player
-    public float riseSpeed = 15f; // Tốc độ trồi lên từ đất
+    public float riseSpeed = 30f; // Tốc độ trồi lên từ đất
     private float currentTargetY = -1.5f; // Mức cao ban đầu
 
     public void Apply(GameObject player)

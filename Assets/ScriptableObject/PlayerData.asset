@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec2a9399ce9beb04f9f353fa8f29326c, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  Acceleration: 2
-  Deceleration: 0.7
-  MaxSpeed: 18
-  MinSpeed: 15
+  Acceleration: 4
+  Deceleration: 0.4
+  MaxSpeed: 23.5
+  MinSpeed: 16
   TiltAngle: 30
   SteerAngle: 8
   DriftFactor: 0.5

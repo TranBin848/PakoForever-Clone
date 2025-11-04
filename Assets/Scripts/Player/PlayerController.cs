@@ -34,102 +34,27 @@ public class CarController : MonoBehaviour
 
     private void Start()
     {
-        ResetCar();
         rb = GetComponent<Rigidbody>();
         rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
+        ResetCar();
+        InitializeSmokeEffects();
     }
-    
-    public void ResetCar()
-    {
-        // Reset lại các thông số của xe
-        CurrentSpeed = data.MinSpeed; // Tốc độ xe về 0
-    }
+
     private void OnCollisionEnter(Collision collision)
     {
-        // Kiểm tra nếu va chạm với vật thể nào đó
-        if (collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Enemy")) // Thay "Obstacle" bằng tag của vật thể bạn muốn
+        if (collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Enemy"))
         {
             if (!cantDestroy)
             {
-                GameManager.Instance.GameOver(); // Gọi hàm GameOver từ GameManager
-                foreach (TrailRenderer trail in wheelTrails)
-                {
-                    if (trail != null)
-                    {
-                        trail.enabled = false;
-                    }
-                }
-                // Cố định camera (hoặc chuyển camera qua vị trí cần thiết)
-                  
-                // Gọi hàm để chơi hiệu ứng nổ
+                GameManager.Instance.GameOver();
+                SetTrailEnabled(false);
                 PlayExplosionEffect();
-                FlyAway(); // Gọi hàm để làm xe bay tứ tung
-                DisableCar(); // Gọi hàm để vô hiệu hóa xe
+                FlyAway();
+                DisableCar();
             }
         }
     }
-    
-
-    void PlayExplosionEffect()
-    {
-        if (explosionEffectPrefab != null)
-        {
-            StartCoroutine(ExplosionSequence());
-        }
-    }
-
-    // 🔥 Coroutine để lặp lại hiệu ứng nổ 3 lần với kích thước nhỏ dần
-    IEnumerator ExplosionSequence()
-    {
-        float scaleFactor = 1f; // Kích thước ban đầu
-        float delayBetweenExplosions = 0.7f; // Thời gian giữa các lần nổ
-
-        for (int i = 0; i < 3; i++) // Lặp lại 3 lần
-        {
-            GameObject explosion = Instantiate(explosionEffectPrefab, transform.position, transform.rotation);
-
-            // Giảm kích thước mỗi lần nổ (0.8, 0.6, 0.4)
-            explosion.transform.localScale *= scaleFactor;
-
-            AudioManager.Instance.playSFX("Explosion"); // Phát âm thanh nổ 
-
-            scaleFactor *= 0.7f; // Giảm kích thước xuống 80% mỗi lần
-            yield return new WaitForSeconds(delayBetweenExplosions); // Đợi trước khi tạo nổ tiếp theo
-        }
-    }
-    void FlyAway()
-    {
-        rb.isKinematic = false; // Bật lại vật lý
-        rb.useGravity = true; // Đảm bảo có trọng lực
-        rb.constraints = RigidbodyConstraints.None; // Gỡ bỏ mọi ràng buộc
-
-        // ✅ Lực bay lên trời mạnh
-        Vector3 launchForce = new Vector3(
-            Random.Range(-2f, 2f),  // Một chút lực ngang
-            Random.Range(30f, 40f), // Lực hướng lên trời mạnh
-            Random.Range(-2f, 2f)   // Một chút lực ngang
-        );
-
-        rb.AddForce(launchForce, ForceMode.Impulse);
-
-        // ✅ Xoay mạnh để giật ngửa
-        Vector3 flipTorque = new Vector3(
-            Random.Range(10f, 20f),  // Xoay quanh trục X
-            Random.Range(-6f, 6f),  // Một chút xoay ngang
-            Random.Range(-20f, -30f) // Xoay mạnh để giật ngửa về sau
-        );
-
-        rb.AddTorque(flipTorque, ForceMode.Impulse);
-    }
-    void DisableCar()
-    {
-        
-        isDisabled = true; // Đặt trạng thái xe bị vô hiệu hóa
-        rb.linearVelocity = Vector3.zero; // Dừng chuyển động
-        rb.angularVelocity = Vector3.zero; // Dừng xoay
-        CurrentSpeed = 0; // Reset tốc độ
-        MoveForce = Vector3.zero; // Dừng mọi lực tác động
-    }
+   
     void Update()
     {
         if (isDisabled) return;
@@ -145,11 +70,6 @@ public class CarController : MonoBehaviour
             GameManager.Instance.GameOver();
             DisableCar();
         }   
-        // Nếu xe đang quá chậm, tăng nhẹ tốc độ để đảm bảo không bị đứng yên
-        if (rb.linearVelocity.magnitude < 1f)
-        {
-            rb.AddForce(transform.forward * 5f, ForceMode.Acceleration);
-        }
         HandleMovement(); // Giờ `steerInput` có thể dùng trong đây
         HandleDrift(); // Thêm drift vào di chuyển
     }
@@ -159,9 +79,10 @@ public class CarController : MonoBehaviour
 
         if (Input.touchCount > 0)
         {
+            steerInput = 0;
             foreach (Touch touch in Input.touches)
             {
-                if (touch.phase == TouchPhase.Began || touch.phase == TouchPhase.Stationary)
+                if (touch.phase == TouchPhase.Began || touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved)
                 {
                     if (touch.position.x < Screen.width / 2)
                     {
@@ -175,10 +96,19 @@ public class CarController : MonoBehaviour
                 }
             }
         }
-        if(steerInput != 0) StartSmokeEffect();
-        else StopSmokeEffect();
+        // Kích hoạt hiệu ứng khói dựa trên input
+        if (Mathf.Abs(steerInput) > 0.1f)
+        {
+            StartSmokeEffect();
+            // Kích hoạt Trail Renderer khi xe đang drift (có thể dùng tốc độ ngang/drift)
+            SetTrailEnabled(true);
+        }
+        else
+        {
+            StopSmokeEffect();
+            SetTrailEnabled(false);
+        }
     }
-
     void HandleMovement()
     {
         if (steerInput != 0)
@@ -228,36 +158,113 @@ public class CarController : MonoBehaviour
             rb.linearVelocity = Vector3.Lerp(rb.linearVelocity, transform.forward * CurrentSpeed, data.DriftSmooth * Time.deltaTime);
         }
     }
+
+    // --- UTILITIES & EFFECTS ---
+    public void ResetCar()
+    {
+        CurrentSpeed = data.MinSpeed;
+        currentSteerAngle = transform.rotation.eulerAngles.y;
+        rb.linearVelocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        SetTrailEnabled(false);
+    }
+    private void SetTrailEnabled(bool enabledState)
+    {
+        foreach (TrailRenderer trail in wheelTrails)
+        {
+            if (trail != null)
+            {
+                trail.enabled = enabledState;
+            }
+        }
+    }
+    void InitializeSmokeEffects()
+    {
+        if (smokeEffectPrefab == null) return;
+
+        // Khởi tạo Particle Systems (Làm con của vị trí bánh xe)
+        currentSmokeEffectLeft = Instantiate(smokeEffectPrefab, tireLeftPosition.position, Quaternion.identity, tireLeftPosition);
+        currentSmokeEffectRight = Instantiate(smokeEffectPrefab, tireRightPosition.position, Quaternion.identity, tireRightPosition);
+
+        // Dừng tất cả ngay lập tức và đảm bảo không có particle cũ
+        currentSmokeEffectLeft.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+        currentSmokeEffectRight.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+    }
     public void StartSmokeEffect()
     {
-        if (currentSmokeEffectLeft == null) // Kiểm tra nếu chưa có hiệu ứng nào đang chạy
+        if (currentSmokeEffectLeft != null && !currentSmokeEffectLeft.isPlaying)
         {
-            currentSmokeEffectLeft = Instantiate(smokeEffectPrefab, tireLeftPosition.transform.position, Quaternion.identity);
-            currentSmokeEffectLeft.transform.parent = tireLeftPosition.transform; // Để hiệu ứng di chuyển cùng object này
-            currentSmokeEffectLeft.Play(); // Bắt đầu hiệu ứng
+            currentSmokeEffectLeft.Play();
         }
-        if (currentSmokeEffectRight == null) // Kiểm tra nếu chưa có hiệu ứng nào đang chạy
+        if (currentSmokeEffectRight != null && !currentSmokeEffectRight.isPlaying)
         {
-            currentSmokeEffectRight = Instantiate(smokeEffectPrefab, tireRightPosition.transform.position, Quaternion.identity);
-            currentSmokeEffectRight.transform.parent = tireRightPosition.transform; // Để hiệu ứng di chuyển cùng object này
-            currentSmokeEffectRight.Play(); // Bắt đầu hiệu ứng
+            currentSmokeEffectRight.Play();
         }
     }
-
     public void StopSmokeEffect()
     {
-        if (currentSmokeEffectLeft != null)
+        if (currentSmokeEffectLeft != null && currentSmokeEffectLeft.isPlaying)
         {
-            currentSmokeEffectLeft.Stop(); // Dừng hiệu ứng
-            Destroy(currentSmokeEffectLeft.gameObject, 2f); // Xóa sau 2 giây để hoàn tất hiệu ứng tắt dần
-            currentSmokeEffectLeft = null; // Reset biến
+            currentSmokeEffectLeft.Stop();
         }
-        if (currentSmokeEffectRight != null)
+        if (currentSmokeEffectRight != null && currentSmokeEffectRight.isPlaying)
         {
-            currentSmokeEffectRight.Stop(); // Dừng hiệu ứng
-            Destroy(currentSmokeEffectRight.gameObject, 2f); // Xóa sau 2 giây để hoàn tất hiệu ứng tắt dần
-            currentSmokeEffectRight = null; // Reset biến
+            currentSmokeEffectRight.Stop();
         }
     }
+    void DisableCar()
+    {
 
+        isDisabled = true; // Đặt trạng thái xe bị vô hiệu hóa
+        rb.linearVelocity = Vector3.zero; // Dừng chuyển động
+        rb.angularVelocity = Vector3.zero; // Dừng xoay
+        CurrentSpeed = 0; // Reset tốc độ
+        MoveForce = Vector3.zero; // Dừng mọi lực tác động
+    }
+    void PlayExplosionEffect()
+    {
+        if (explosionEffectPrefab != null)
+        {
+            StartCoroutine(ExplosionSequence());
+        }
+    }
+    //Coroutine để lặp lại hiệu ứng nổ 3 lần với kích thước nhỏ dần
+    IEnumerator ExplosionSequence()
+    {
+        float scaleFactor = 1f;
+        float delayBetweenExplosions = 0.7f;
+
+        for (int i = 0; i < 3; i++)
+        {
+            GameObject explosion = Instantiate(explosionEffectPrefab, transform.position, transform.rotation);
+            explosion.transform.localScale *= scaleFactor;
+
+            AudioManager.Instance.playSFX("Explosion"); // Uncomment nếu bạn có AudioManager
+
+            scaleFactor *= 0.7f;
+            yield return new WaitForSeconds(delayBetweenExplosions);
+        }
+    }
+    void FlyAway()
+    {
+        rb.isKinematic = false;
+        rb.useGravity = true;
+        rb.constraints = RigidbodyConstraints.None;
+
+        Vector3 launchForce = new Vector3(
+            Random.Range(-2f, 2f),
+            Random.Range(30f, 40f),
+            Random.Range(-2f, 2f)
+        );
+
+        rb.AddForce(launchForce, ForceMode.Impulse);
+
+        Vector3 flipTorque = new Vector3(
+            Random.Range(10f, 20f),
+            Random.Range(-6f, 6f),
+            Random.Range(-20f, -30f)
+        );
+
+        rb.AddTorque(flipTorque, ForceMode.Impulse);
+    }
 }

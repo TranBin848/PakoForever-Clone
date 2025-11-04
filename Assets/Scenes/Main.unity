@@ -6466,7 +6466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffPrefabs:
-  - {fileID: 2588897737443205568, guid: 3745b2245a8a3a541b511b8477d90b91, type: 3}
+  - {fileID: 9054838352443047710, guid: 476dab44151e6c44eb5537cb58202772, type: 3}
   spawnPoint: {fileID: 301615956905666086}
 --- !u!1 &1883963262
 GameObject:
@@ -7565,7 +7565,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2117352060}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 634484838a008bf4e8e889b92b6b62dc, type: 3}
   m_Name: 
@@ -7575,10 +7575,12 @@ MonoBehaviour:
   - {fileID: 3691982247392417565, guid: c1fb1def3990dba4ba3462f4872a4d6c, type: 3}
   - {fileID: 7185324129703631420, guid: b1ada011134ec5f44821741e1b06a8b2, type: 3}
   player: {fileID: 301615956905666086}
-  spawnDistance: 40
+  initialDelay: 3
+  baseSpawnDistance: 30
   spawnInterval: 1.1
   maxEnemies: 25
   difficultyIncreaseRate: 5
+  maxSpeedForDynamicCalc: 50
   currentEnemyCount: 0
 --- !u!1 &2126492428
 GameObject:
@@ -7819,6 +7821,14 @@ PrefabInstance:
     - target: {fileID: 4873586208344836964, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
       propertyPath: m_Name
       value: 03pelaaja_sedan
+      objectReference: {fileID: 0}
+    - target: {fileID: 7036990874994609430, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
+      propertyPath: m_Time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8155304452607191075, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
+      propertyPath: m_Time
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

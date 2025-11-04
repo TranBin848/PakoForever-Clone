@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec2a9399ce9beb04f9f353fa8f29326c, type: 3}
   m_Name: EnemyCopData
   m_EditorClassIdentifier: 
-  Acceleration: 1
-  Deceleration: 1
-  MaxSpeed: 18
-  MinSpeed: 10
+  Acceleration: 2
+  Deceleration: 0.9
+  MaxSpeed: 21
+  MinSpeed: 14
   TiltAngle: 35
   SteerAngle: 20
   DriftFactor: 0.5
