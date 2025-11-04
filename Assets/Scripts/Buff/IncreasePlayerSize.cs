@@ -11,6 +11,7 @@ public class IncreasePlayerSize : MonoBehaviour, IBuff
         AudioManager.Instance.playSFX("Giant");
         GameManager.Instance.ChangeBuff("Giant");
         player.transform.localScale *= 2f;
+        player.tag = "Giant";
         CarController.Instance.cantDestroy = true;
         // Bắt đầu Coroutine để reset sau 10s
         player.GetComponent<CarController>().StartCoroutine(ResetSize(player));
@@ -29,6 +30,8 @@ public class IncreasePlayerSize : MonoBehaviour, IBuff
             player.transform.localScale /= 2f;
 
             CarController.Instance.cantDestroy = false;
+
+            player.tag = "Player";
         }
     }
 }

@@ -6466,13 +6466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffPrefabs:
-  - {fileID: 8540245754727186618, guid: 141236a6f9f35d047bc212c27b0b54ea, type: 3}
-  - {fileID: 4531453080472392740, guid: 4e6f18b76cb5950479c684ec859f527d, type: 3}
-  - {fileID: 1164971973678369570, guid: a41887f3c35bee24f841e70e59bf7de5, type: 3}
-  - {fileID: 4220971686966773846, guid: 924f2c8d550b93c448193c719d9f3261, type: 3}
   - {fileID: 2588897737443205568, guid: 3745b2245a8a3a541b511b8477d90b91, type: 3}
-  - {fileID: 287721917838776130, guid: 86a0b00c24b20fc47825bd942f3f55ac, type: 3}
-  - {fileID: 9054838352443047710, guid: 476dab44151e6c44eb5537cb58202772, type: 3}
   spawnPoint: {fileID: 301615956905666086}
 --- !u!1 &1883963262
 GameObject:
@@ -6852,21 +6846,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainChunks:
-  - {fileID: 7072087857733045654, guid: 5bc0ee9236d21524d9413648f487d020, type: 3}
-  - {fileID: 722964989275921677, guid: d4fc41c28d1882442b0944e16327e8f8, type: 3}
-  - {fileID: 5782207130247493388, guid: 6666db5075e5c2346946ceb8544d90b2, type: 3}
-  - {fileID: 3961178616031011879, guid: 91ee78c7fc3ffc645be9d9467752b559, type: 3}
-  - {fileID: 7242959472970534952, guid: c4e30d0447e43c143a7b058e17ae7fdb, type: 3}
-  - {fileID: 8830592788489833348, guid: 31bf60223f8885e42b287a39abf8cabe, type: 3}
-  - {fileID: 4918694910101651463, guid: 2abf58ca51043424dbdc0cd8ecb915cd, type: 3}
-  - {fileID: 8945360781481238858, guid: 0f1aabb93ab3b31459bd476538bf80de, type: 3}
-  - {fileID: 7357888153625383510, guid: a7320d84e48b6d34dacfa20918766465, type: 3}
-  - {fileID: 6825290311589798002, guid: 94ad9abbdac57f3438c315d1f6aefbf5, type: 3}
-  - {fileID: 8014431723484645202, guid: a5837ed9593e5434d9b2f45fdd169c40, type: 3}
-  - {fileID: 9195601932437783317, guid: b473b340454550b498838c5a3d20db48, type: 3}
+  - {fileID: 7242959472970534952, guid: 100ff623d0de74345a086ac2628c2c6c, type: 3}
+  - {fileID: 7242959472970534952, guid: 0e44eb07f448cdd4793756b0abe5bf83, type: 3}
+  - {fileID: 8014431723484645202, guid: 7ee4a781d882d3e47bfc2a1ab0e457af, type: 3}
+  - {fileID: 8014431723484645202, guid: 712762c9653f262478a0baa163b9384d, type: 3}
+  - {fileID: 8830592788489833348, guid: 007f364bafa77164fa947eb84a18d51d, type: 3}
+  - {fileID: 8014431723484645202, guid: 1db9641a1ed162248af4121ee2a3e1f1, type: 3}
+  - {fileID: 8830592788489833348, guid: 9ac42abd170c2284c990da5963de5a8c, type: 3}
+  - {fileID: 7242959472970534952, guid: 100ff623d0de74345a086ac2628c2c6c, type: 3}
+  - {fileID: 7242959472970534952, guid: 0e44eb07f448cdd4793756b0abe5bf83, type: 3}
+  - {fileID: 8014431723484645202, guid: 7ee4a781d882d3e47bfc2a1ab0e457af, type: 3}
+  - {fileID: 8014431723484645202, guid: 712762c9653f262478a0baa163b9384d, type: 3}
+  - {fileID: 8830592788489833348, guid: 007f364bafa77164fa947eb84a18d51d, type: 3}
+  - {fileID: 8830592788489833348, guid: 9ac42abd170c2284c990da5963de5a8c, type: 3}
   player: {fileID: 4964703236226813188}
-  checkerRadius: 150
-  chunkSize: 66
+  checkerRadius: 200
+  chunkSize: 80
   terrainMask:
     serializedVersion: 2
     m_Bits: 64
@@ -7570,7 +7565,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2117352060}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 634484838a008bf4e8e889b92b6b62dc, type: 3}
   m_Name: 
@@ -7631,7 +7626,7 @@ MonoBehaviour:
   - name: Blade
     clip: {fileID: 8300000, guid: 67cc0d5161ca2bb4e8bdb21ab9fb1037, type: 3}
   - name: Giant
-    clip: {fileID: 8300000, guid: cb6183f4c3446f44ea6a2d3e6a5a365f, type: 3}
+    clip: {fileID: 8300000, guid: 19bf5bca33ea40c47b5235d1b76b885c, type: 3}
   - name: Ghost
     clip: {fileID: 8300000, guid: f1b63f03382b1674dbd7b0f19ab50136, type: 3}
   - name: Laser

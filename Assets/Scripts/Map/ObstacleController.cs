@@ -24,10 +24,14 @@ public class ObstacleController : MonoBehaviour
         {
             StartCoroutine(BlinkAndDestroy());
         }
-        if (other.gameObject.CompareTag("Ghost"))
+        else if (other.gameObject.CompareTag("Giant"))
         {
-            return;
+            Destroy(this.gameObject);
         }
+        //if (other.gameObject.CompareTag("Ghost"))
+        //{
+        //    return;
+        //}
     }
 
     private void OnTriggerEnter(Collider other)
