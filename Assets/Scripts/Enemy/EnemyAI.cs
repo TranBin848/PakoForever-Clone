@@ -19,6 +19,13 @@ public class EnemyAI : MonoBehaviour
     private float steeringResponse = 8f; // phản ứng chậm hơn → drift trễ
     private float driftInertia = 0.9f;   // quán tính giữ hướng cũ
 
+    public Transform frontLeftWheel;
+    public Transform frontRightWheel;
+    public Transform backLeftWheel;
+    public Transform backRightWheel;
+
+    public float wheelRadius = 0.5f;
+
     private void Start()
     {
         if (CarController.Instance != null)
@@ -48,6 +55,8 @@ public class EnemyAI : MonoBehaviour
         HandleSpeed();
         HandleSteering();
         MoveEnemy();
+
+        HandleWheels();
     }
 
     private void HandleSteering()
@@ -78,6 +87,41 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    private void HandleWheels()
+    {
+        // 1. TÍNH TOÁN TỐC ĐỘ QUAY (Rotation)
+        // Tốc độ quay cần thiết (đơn vị: độ/giây). Chu vi = 2 * Pi * R.
+        // Tốc độ quay (rad/s) = Vận tốc tuyến tính (m/s) / Bán kính (m)
+        float rotationSpeed = (CurrentSpeed / wheelRadius) * Mathf.Rad2Deg;
+
+        // 2. TÍNH GÓC LÁI (Steering)
+        // Góc lái chỉ áp dụng cho bánh trước.
+        // Góc này nên tỉ lệ với steerInput và SteerAngle
+        float finalSteerAngle = steerInput * data.SteerAngle;
+
+        // 3. ÁP DỤNG
+
+        // Bánh Sau: Chỉ quay, không lái
+        backLeftWheel.Rotate(Vector3.right, rotationSpeed * Time.fixedDeltaTime);
+        backRightWheel.Rotate(Vector3.right, rotationSpeed * Time.fixedDeltaTime);
+
+        // Bánh Trước: Quay và Lái
+
+        // Quay (Roll): Tương tự bánh sau
+        frontLeftWheel.Rotate(Vector3.right, rotationSpeed * Time.fixedDeltaTime);
+        frontRightWheel.Rotate(Vector3.right, rotationSpeed * Time.fixedDeltaTime);
+
+        // Lái (Steer): Xoay trục Y của Transform bánh xe
+        // Chúng ta chỉ cần thiết lập góc xoay (Yaw) của bánh xe trước, KHÔNG tích lũy (+=)
+
+        // Bánh xe trước cần xoay quanh trục Y cục bộ để mô phỏng góc lái.
+        // Lưu ý: Tùy thuộc vào cách setup Transform của bánh xe, Vector3.up có thể cần thay đổi.
+        Quaternion targetRotationFL = Quaternion.Euler(0, finalSteerAngle, 0);
+        frontLeftWheel.localRotation = targetRotationFL;
+
+        Quaternion targetRotationFR = Quaternion.Euler(0, finalSteerAngle, 0);
+        frontRightWheel.localRotation = targetRotationFR;
+    }
     private void MoveEnemy()
     {
         // Thêm "lực quán tính" – xe giữ hướng cũ nhiều hơn khi đổi hướng

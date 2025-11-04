@@ -7571,9 +7571,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefabs:
-  - {fileID: 8209437205830103038, guid: 9b88836f2a392ee49a1940e3e44a9ab6, type: 3}
-  - {fileID: 3691982247392417565, guid: c1fb1def3990dba4ba3462f4872a4d6c, type: 3}
-  - {fileID: 7185324129703631420, guid: b1ada011134ec5f44821741e1b06a8b2, type: 3}
+  - {fileID: 6299215574647148819, guid: 76d7e350e59b4f4478f90a255bd12052, type: 3}
+  - {fileID: 7959378562079108292, guid: 7a803c482d50e384598cee0a9888dc6a, type: 3}
+  - {fileID: 5071411119058498575, guid: bc6a2d66975527b4cb7d484914456a78, type: 3}
   player: {fileID: 301615956905666086}
   initialDelay: 3
   baseSpawnDistance: 30
@@ -7821,6 +7821,10 @@ PrefabInstance:
     - target: {fileID: 4873586208344836964, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
       propertyPath: m_Name
       value: 03pelaaja_sedan
+      objectReference: {fileID: 0}
+    - target: {fileID: 4873586208344836964, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7036990874994609430, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
       propertyPath: m_Time

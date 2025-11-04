@@ -56,9 +56,10 @@ public class Pillar : MonoBehaviour, IBuff
             elapsedTime += spawnInterval;
             yield return new WaitForSeconds(spawnInterval);
         }
-        if (gameObject.scene.IsValid())
+        if (this != null && gameObject.scene.IsValid())
         {
             Destroy(gameObject);
+            yield break;
         }
     }
     private IEnumerator RisePillar(GameObject pillar, float targetY)

@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class DiscoTiles : MonoBehaviour
 {
-    public List<Texture> textures; // Danh sách các texture
-    private Renderer tileRenderer;
+    public List<Texture2D> textures; // Danh sách các texture
+    private MeshRenderer tileRenderer;
 
     private void Start()
     {
-        tileRenderer = GetComponent<Renderer>(); // Lấy renderer của tile
+        tileRenderer = GetComponent<MeshRenderer>(); // Lấy renderer của tile
     }
 
     private void OnTriggerEnter(Collider other)
@@ -22,12 +22,14 @@ public class DiscoTiles : MonoBehaviour
 
     private void ChangeTexture()
     {
+        if (tileRenderer == null) return;
+
         if (textures.Count == 0) return;
 
-        // Chọn texture ngẫu nhiên
-        Texture randomTexture = textures[Random.Range(0, textures.Count)];
+        Texture2D randomTexture = textures[Random.Range(0, textures.Count)];
 
-        // Gán texture mới cho material của tile
+        if (randomTexture == null) return;
+
         tileRenderer.material.mainTexture = randomTexture;
     }
 }
