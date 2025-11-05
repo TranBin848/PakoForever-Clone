@@ -122,9 +122,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d887664400af2e04dacb8167a43bbf0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseSpeed: 26
+  chaseSpeed: 28
   bounceHeight: 0.5
   bounceSpeed: 7
+  smokeExplosionPrefab: {fileID: 4121091811543088291, guid: 3dc996515ee648f44930aaf8f9864be9, type: 3}
 --- !u!1 &1360669734507719
 GameObject:
   m_ObjectHideFlags: 0

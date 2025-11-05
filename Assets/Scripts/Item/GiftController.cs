@@ -9,6 +9,8 @@ public class GiftController : MonoBehaviour
     private Transform playerTransform;
     private Vector3 initialPosition;
 
+    public GameObject smokeExplosionPrefab; // Kéo SmokeExplosion vào trong Inspector
+
     private void Start()
     {
         if (GameManager.Instance.isGameover)
@@ -44,18 +46,26 @@ public class GiftController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
-            if (CarController.Instance.isDisabled) return;
-            GameObject buffObject = BuffManager.Instance.GetRandomBuff();
-            IBuff buff = buffObject.GetComponent<IBuff>();
+        if (!other.CompareTag("Player")) return;
+        if (CarController.Instance.isDisabled) return;
 
-            if (buff != null)
-            {
-                buff.Apply(other.gameObject);
-            }
-            ItemSpawner.Instance.StartGiftCooldown(); // Bắt đầu cooldown để spawn hộp quà mới
-            Destroy(gameObject); // Xóa hộp quà khi nhận được
+        // Áp dụng buff
+        GameObject buffObject = BuffManager.Instance.GetRandomBuff();
+        IBuff buff = buffObject.GetComponent<IBuff>();
+        if (buff != null)
+            buff.Apply(other.gameObject);
+
+        AudioManager.Instance.playSFX("Gift");
+
+        // 🎇 Tạo hiệu ứng khói nổ mới
+        if (smokeExplosionPrefab != null)
+        {
+            GameObject smoke = Instantiate(smokeExplosionPrefab, other.transform.position, Quaternion.identity);
         }
+
+        // Cooldown & hủy quà
+        ItemSpawner.Instance.StartGiftCooldown();
+        Destroy(gameObject);
     }
+
 }

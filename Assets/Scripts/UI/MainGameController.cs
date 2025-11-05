@@ -80,7 +80,7 @@ public class MainGameController : MonoBehaviour
                 break;
         }
         AudioManager.Instance.PlaySFXWithDuration("Police", 6f);
-        GameManager.Instance.AdjustCameraDistance(85f);
+        GameManager.Instance.AdjustCameraDistance(100f);
         homePanel.SetActive(false);
         settingsPanel.SetActive(false);
         gameOverPanel.SetActive(false);

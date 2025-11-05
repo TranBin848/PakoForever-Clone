@@ -6,10 +6,15 @@ public class DiscoTiles : MonoBehaviour
 {
     public List<Texture2D> textures; // Danh sách các texture
     private MeshRenderer tileRenderer;
+    private Texture2D currentTexture; // Lưu texture hiện tại
 
     private void Start()
     {
         tileRenderer = GetComponent<MeshRenderer>(); // Lấy renderer của tile
+        if (tileRenderer != null)
+        {
+            currentTexture = tileRenderer.material.mainTexture as Texture2D;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -22,14 +27,22 @@ public class DiscoTiles : MonoBehaviour
 
     private void ChangeTexture()
     {
-        if (tileRenderer == null) return;
+        if (tileRenderer == null || textures.Count == 0)
+            return;
 
-        if (textures.Count == 0) return;
+        // Tạo danh sách texture khả dụng (không trùng với texture hiện tại)
+        List<Texture2D> availableTextures = new List<Texture2D>(textures);
+        availableTextures.Remove(currentTexture);
 
-        Texture2D randomTexture = textures[Random.Range(0, textures.Count)];
+        // Nếu tất cả texture đều giống nhau → thoát
+        if (availableTextures.Count == 0)
+            return;
 
-        if (randomTexture == null) return;
+        // Chọn texture ngẫu nhiên khác với texture hiện tại
+        Texture2D newTexture = availableTextures[Random.Range(0, availableTextures.Count)];
 
-        tileRenderer.material.mainTexture = randomTexture;
+        // Áp dụng texture mới
+        tileRenderer.material.mainTexture = newTexture;
+        currentTexture = newTexture;
     }
 }

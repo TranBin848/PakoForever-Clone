@@ -37,7 +37,7 @@ public class EnemyAI : MonoBehaviour
             Debug.LogError("Player instance not found!");
         }
 
-        CurrentSpeed = data.MinSpeed;
+        CurrentSpeed = data.MaxSpeed;
         rb = GetComponent<Rigidbody>();
     }
 
@@ -79,7 +79,7 @@ public class EnemyAI : MonoBehaviour
         CurrentSpeed += data.Acceleration * Time.fixedDeltaTime;
         CurrentSpeed = Mathf.Min(CurrentSpeed, data.MaxSpeed);
 
-        if (distanceToPlayer <= 5f && Mathf.Abs(steerInput) > 0.8f)
+        if (distanceToPlayer <= 10f && Mathf.Abs(steerInput) > 0.8f)
         {
             // Giảm tốc mạnh hơn khi cố gắng rẽ gấp (tạo hiệu ứng phanh gấp/hoảng loạn)
             CurrentSpeed -= data.Deceleration * Time.fixedDeltaTime * 2f;

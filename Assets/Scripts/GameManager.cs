@@ -116,7 +116,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
     }
     public void ZoomOut()
     {
-        AdjustCameraDistance(95f);
+        AdjustCameraDistance(100f);
     }
     public void GameOver()
     {

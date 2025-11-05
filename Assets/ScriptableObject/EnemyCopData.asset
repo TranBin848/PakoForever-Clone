@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: EnemyCopData
   m_EditorClassIdentifier: 
   Acceleration: 1.9
-  Deceleration: 0.9
+  Deceleration: 1.1
   MaxSpeed: 20
-  MinSpeed: 14
+  MinSpeed: 12
   TiltAngle: 35
   SteerAngle: 20
   DriftFactor: 0.5

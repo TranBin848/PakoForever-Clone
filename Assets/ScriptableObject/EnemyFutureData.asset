@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: EnemyFutureData
   m_EditorClassIdentifier: 
   Acceleration: 1.5
-  Deceleration: 1
+  Deceleration: 1.2
   MaxSpeed: 18
-  MinSpeed: 13
+  MinSpeed: 10
   TiltAngle: 25
   SteerAngle: 25
   DriftFactor: 0.5
