@@ -70,7 +70,7 @@ public class CarController : MonoBehaviour
             GameManager.Instance.GameOver();
             DisableCar();
         }   
-        HandleMovement(); // Giờ `steerInput` có thể dùng trong đây
+        HandleMovement();
         HandleDrift(); // Thêm drift vào di chuyển
     }
     void HandleInput()
