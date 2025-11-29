@@ -1975,7 +1975,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51f9929638f094e409350a55dffaf498, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  giftPrefab: {fileID: 1058853271632758, guid: 6590a53669a5d414f9bbfa0fccae609a, type: 3}
+  giftPrefab: {fileID: 7693987784770395026, guid: b165f4a5bccdc2b42b6d211e7b865d0a, type: 3}
   playerTransform: {fileID: 301615956905666086}
   minSpawnDistance: 15
   maxSpawnDistance: 25
@@ -8486,7 +8486,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1015086409292049405, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.3300002
+      value: 2.1800003
       objectReference: {fileID: 0}
     - target: {fileID: 1015086409292049405, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -8527,7 +8527,7 @@ PrefabInstance:
     - target: {fileID: 2853912480144021032, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 4300008, guid: c99e98d2e12a88c42912742cf2de3eb6, type: 3}
+      objectReference: {fileID: 4300008, guid: 1592d15b209482a419d7871e61ae4e5e, type: 3}
     - target: {fileID: 2901335881365739723, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -8642,7 +8642,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4228377851451612965, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.33
+      value: 2.18
       objectReference: {fileID: 0}
     - target: {fileID: 4228377851451612965, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -8702,7 +8702,7 @@ PrefabInstance:
       objectReference: {fileID: 18326143}
     - target: {fileID: 5693902060346942625, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
       propertyPath: carMeshes.Array.size
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5693902060346942625, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
       propertyPath: carMaterials.Array.size
@@ -8715,21 +8715,29 @@ PrefabInstance:
     - target: {fileID: 5693902060346942625, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
       propertyPath: 'carMeshes.Array.data[1]'
       value: 
-      objectReference: {fileID: 4300000, guid: 2ef92771e1de08b44a8d83f9f908bd9a, type: 2}
+      objectReference: {fileID: 4300008, guid: c99e98d2e12a88c42912742cf2de3eb6, type: 3}
     - target: {fileID: 5693902060346942625, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
       propertyPath: 'carMeshes.Array.data[2]'
       value: 
-      objectReference: {fileID: 4300000, guid: 1b9664d8ac459e14f94010959a077ea1, type: 2}
+      objectReference: {fileID: 4300008, guid: 1592d15b209482a419d7871e61ae4e5e, type: 3}
     - target: {fileID: 5693902060346942625, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
       propertyPath: 'carMeshes.Array.data[3]'
       value: 
-      objectReference: {fileID: 4300000, guid: 9f134908402cc874cbe115e3b0f29504, type: 2}
+      objectReference: {fileID: 4300000, guid: 2ef92771e1de08b44a8d83f9f908bd9a, type: 2}
     - target: {fileID: 5693902060346942625, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
       propertyPath: 'carMeshes.Array.data[4]'
       value: 
-      objectReference: {fileID: 4300000, guid: a3f480e03aa4f94489f7c7ce9d7b484c, type: 2}
+      objectReference: {fileID: 4300000, guid: 1b9664d8ac459e14f94010959a077ea1, type: 2}
     - target: {fileID: 5693902060346942625, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
       propertyPath: 'carMeshes.Array.data[5]'
+      value: 
+      objectReference: {fileID: 4300000, guid: 9f134908402cc874cbe115e3b0f29504, type: 2}
+    - target: {fileID: 5693902060346942625, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
+      propertyPath: 'carMeshes.Array.data[6]'
+      value: 
+      objectReference: {fileID: 4300000, guid: a3f480e03aa4f94489f7c7ce9d7b484c, type: 2}
+    - target: {fileID: 5693902060346942625, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
+      propertyPath: 'carMeshes.Array.data[7]'
       value: 
       objectReference: {fileID: 4300000, guid: 5a7e125cb60a55d4e8096ab4c4571b1b, type: 2}
     - target: {fileID: 5693902060346942625, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
@@ -8739,7 +8747,7 @@ PrefabInstance:
     - target: {fileID: 5693902060346942625, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
       propertyPath: 'carMaterials.Array.data[1]'
       value: 
-      objectReference: {fileID: 2100000, guid: 52d0c274247cd124bb4f72cf75f9ad4d, type: 2}
+      objectReference: {fileID: 2100000, guid: 16a15e8c409c176478b965c74b0bd620, type: 2}
     - target: {fileID: 5693902060346942625, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
       propertyPath: 'carMaterials.Array.data[2]'
       value: 
@@ -8758,7 +8766,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 753a3c1044b17f44bb01dca4e0a00db2, type: 2}
     - target: {fileID: 5693902060346942625, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
       propertyPath: wheelPositionsForEachMesh.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5693902060346942625, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
       propertyPath: wheelPositionsForEachMesh.Array.data[0].backLeftWheel.x
@@ -8782,6 +8790,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5693902060346942625, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
       propertyPath: wheelPositionsForEachMesh.Array.data[1].backLeftWheel.z
+      value: -1.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 5693902060346942625, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
+      propertyPath: wheelPositionsForEachMesh.Array.data[2].backLeftWheel.x
+      value: -1.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 5693902060346942625, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
+      propertyPath: wheelPositionsForEachMesh.Array.data[2].backLeftWheel.y
+      value: -0.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 5693902060346942625, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
+      propertyPath: wheelPositionsForEachMesh.Array.data[2].backLeftWheel.z
       value: -1.47
       objectReference: {fileID: 0}
     - target: {fileID: 5693902060346942625, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
@@ -8833,6 +8853,30 @@ PrefabInstance:
       value: 2.33
       objectReference: {fileID: 0}
     - target: {fileID: 5693902060346942625, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
+      propertyPath: wheelPositionsForEachMesh.Array.data[2].backRightWheel.x
+      value: 1.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 5693902060346942625, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
+      propertyPath: wheelPositionsForEachMesh.Array.data[2].backRightWheel.y
+      value: -0.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 5693902060346942625, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
+      propertyPath: wheelPositionsForEachMesh.Array.data[2].backRightWheel.z
+      value: -1.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 5693902060346942625, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
+      propertyPath: wheelPositionsForEachMesh.Array.data[2].frontLeftWheel.x
+      value: -1.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 5693902060346942625, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
+      propertyPath: wheelPositionsForEachMesh.Array.data[2].frontLeftWheel.y
+      value: -0.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 5693902060346942625, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
+      propertyPath: wheelPositionsForEachMesh.Array.data[2].frontLeftWheel.z
+      value: 2.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 5693902060346942625, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
       propertyPath: wheelPositionsForEachMesh.Array.data[0].frontRightWheel.x
       value: 1.38
       objectReference: {fileID: 0}
@@ -8855,6 +8899,18 @@ PrefabInstance:
     - target: {fileID: 5693902060346942625, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
       propertyPath: wheelPositionsForEachMesh.Array.data[1].frontRightWheel.z
       value: 2.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 5693902060346942625, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
+      propertyPath: wheelPositionsForEachMesh.Array.data[2].frontRightWheel.x
+      value: 1.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 5693902060346942625, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
+      propertyPath: wheelPositionsForEachMesh.Array.data[2].frontRightWheel.y
+      value: -0.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 5693902060346942625, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
+      propertyPath: wheelPositionsForEachMesh.Array.data[2].frontRightWheel.z
+      value: 2.18
       objectReference: {fileID: 0}
     - target: {fileID: 7036990874994609430, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
       propertyPath: m_Time
