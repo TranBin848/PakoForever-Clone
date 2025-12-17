@@ -43,6 +43,7 @@ public class ChangeMesh : MonoBehaviour, IDataPersistence
         meshFilter.mesh = carMeshes[currentMeshIndex];
         meshRenderer = GetComponent<MeshRenderer>();
         meshRenderer.material = carMaterials[currentMeshColorIndex];
+        UpdateWheelPositions(); // Cập nhật vị trí bánh xe khi load
     }
     public void SaveData(ref GameData data)
     {

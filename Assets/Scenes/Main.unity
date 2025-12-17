@@ -2005,7 +2005,7 @@ MonoBehaviour:
   playerTransform: {fileID: 301615956905666086}
   minSpawnDistance: 15
   maxSpawnDistance: 25
-  spawnCooldown: 15
+  spawnCooldown: 12
 --- !u!1 &507707025
 GameObject:
   m_ObjectHideFlags: 0
@@ -3191,8 +3191,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190335
+  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3327,8 +3327,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278250491
+  m_fontColor: {r: 0.9843138, g: 0.9215687, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4761,8 +4761,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278250491
+  m_fontColor: {r: 0.98490566, g: 0.9221495, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -6589,7 +6589,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -6622,7 +6622,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -7613,8 +7613,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278250491
+  m_fontColor: {r: 0.9843138, g: 0.9215687, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -8590,7 +8590,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1015086409292049405, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.1800003
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 1015086409292049405, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -8618,7 +8618,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2061540792702397563, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.4699999
+      value: -1.8
       objectReference: {fileID: 0}
     - target: {fileID: 2061540792702397563, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -8631,7 +8631,7 @@ PrefabInstance:
     - target: {fileID: 2853912480144021032, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 4300008, guid: 1592d15b209482a419d7871e61ae4e5e, type: 3}
+      objectReference: {fileID: 4300008, guid: 76eea54e4cf71bf4dac0e3ef48ee32b7, type: 3}
     - target: {fileID: 2901335881365739723, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -8758,7 +8758,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4228377851451612965, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.18
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 4228377851451612965, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -8794,7 +8794,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5120009167966552342, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.47
+      value: -1.8
       objectReference: {fileID: 0}
     - target: {fileID: 5120009167966552342, guid: 2cf47acef397f1a4ea46aebd720a867f, type: 3}
       propertyPath: m_ConstrainProportionsScale

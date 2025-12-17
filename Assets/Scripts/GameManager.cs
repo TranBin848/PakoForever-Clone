@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
     {
         data.bestScore = this.bestScore;
         data.bestDist = this.bestDist;
-        data.bestCrash = this.bestCrash;   
+        data.bestCrash = this.bestCrash;
     }
     private void Start()
     {
@@ -126,18 +126,18 @@ public class GameManager : MonoBehaviour, IDataPersistence
         {
             bestScore = elapsedTime;
         }
-        if(distanceTravelled > bestDist)
+        if (distanceTravelled > bestDist)
         {
             bestDist = distanceTravelled;
         }
-        if(CrashCar > bestCrash)
+        if (CrashCar > bestCrash)
         {
             bestCrash = CrashCar;
         }
         bestDistText.text = $"BEST DIST: {bestDist}";
-        bestCrashText.text = $"BEST CRASH: {bestCrash}"; 
+        bestCrashText.text = $"BEST CRASH: {bestCrash}";
         DataPersistenceManager.instance.SaveGame();
-        resultText.text = $"{FormatTime(elapsedTime)}";
+        resultText.text = $"{FormatTime(elapsedTime)}/{FormatTime(bestScore)}";
         MainGameController.Instance.ShowGameOverPanel();
         ZoomIn();
     }

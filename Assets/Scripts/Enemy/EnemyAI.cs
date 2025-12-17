@@ -52,6 +52,16 @@ public class EnemyAI : MonoBehaviour
         if (CarController.Instance.isDisabled || isStuck || player == null)
             return;
 
+        if (transform.position.y < -5)
+        {
+            // Kích hoạt hiệu ứng nổ
+            PlayExplosionEffect();
+            // Gọi hàm để vô hiệu hóa Enemy
+            AudioManager.Instance.playSFX("Explosion");
+            GameManager.Instance.CrashCar += 1;
+            EnemySpawner.Instance.EnemyDestroyed(this.gameObject);
+        }
+
         HandleSpeed();
         HandleSteering();
         MoveEnemy();
@@ -168,15 +178,15 @@ public class EnemyAI : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Glue"))
+        if (other.gameObject.CompareTag("Glue"))
         {
-            StopMovement(); 
+            StopMovement();
         }
-        if(other.gameObject.CompareTag("Blade") || other.gameObject.CompareTag("Laser") || other.gameObject.CompareTag("Pillar") )
+        if (other.gameObject.CompareTag("Blade") || other.gameObject.CompareTag("Laser") || other.gameObject.CompareTag("Pillar"))
         {
             // Kích hoạt hiệu ứng nổ
             PlayExplosionEffect();
-            
+
             // Gọi hàm để vô hiệu hóa Enemy
             AudioManager.Instance.playSFX("Explosion");
             GameManager.Instance.CrashCar += 1;
